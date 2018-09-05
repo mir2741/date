@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>the server w</title>
+</head>
+<p>
+    <table border="1">
+    <form action="/apps/appsw">
+        <tr>
+            <td>模块名:</td><td><input type="text" name="appsname"></td>
+            <td>应用名:</td><td><input type="text" name="appname"></td>
+            <td>负者人:</td><td><input type="text" name="username" placeholder="开发对接人"></td></tr>
+            <tr><td>
+            中间件:</td><td><select name="middleware">
+                    <option value ='Tomcat6'>Tomcat6</option>
+                    <option value ='Tomcat8'>Tomcat8</option>
+                    <option value ='weblogic'>weblogic</option>
+                    <option value ='Jboss'>Jboss</option>
+               </select></td>
+            <td>
+        java版本:</td><td><select name="jdkn">
+                    <option value ='jdk_1.6'>jdk 1.6</option>
+                    <option value ='jdk_1.7'>jdk 1.7</option>
+                    <option value ='jdk_1.8'>jdk 1.8</option>
+        </select></td>
+        <td>
+        ojdbc版本:</td><td><select name="ojdbcn">
+                    <option value ='ojdbc6'>ojdbc6</option>
+                    <option value ='ojdbc6_g'>ojdbc6_g</option>
+                    <option value ='ojdbc8_g'>ojdbc8_g</option>
+                 </select>
+        </td>
+        </table>
+        <table border="2">
+        <tr><td>域名:</td><td><input type="text" style="width:500px" name="domain_name" placeholder="多参数用“,”隔开 www.xxx.con,www.yyy.og"></td></tr>
+        <tr><td>生产环境IP：</td><td><input type="text" style="width:500px" name="prd_ip" placeholder="多参数用“,”隔开0.0.0.0:11,0.0.0.0"></td></tr>
+        <tr><td>生产数据源：</td><td><input type="text" style="width:500px" name="prd_ojdbc" placeholder="多参数用“,”隔开0.0.0.0:11,0.0.0.0"></td></tr>
+            <tr><td>测试域名:</td><td><input type="text" style="width:500px" name="dev_domain" placeholder="多参数用“,”隔开 www.xxx.con,www.yyy.og"></td></tr>
+        <tr><td>测试环境IP：</td><td><input type="text" style="width:500px" name="dev_ip" placeholder="多参数用“,”隔开0.0.0.0:11,0.0.0.0"></td></tr>
+        <tr><td>测试数据源：</td><td><input type="text" style="width:500px" name="dev_ojdbc" placeholder="多参数用“,”隔开0.0.0.0:11,0.0.0.0"></td></tr>
+        <tr><td><input type="submit" value="提交"></td></tr>
+        </table>
+    </form></p>
+<p>{% if pyError != 'None' %}
+    {{ pyError }}</p>
+    {% endif %}
+</h>
+    <!-- app_name,app_mod_name,app_loser_name,app_middleware,app_jdkn,app_ojdbcn,app_date,app_prd_domain,app_prd_ip,app_prd_ojdbcip,app_dev_domain,app_dev_ip,app_dev_ojdbcip -->
+    {% for app_name,app_mod_name,app_loser_name,app_middleware,app_jdkn,app_ojdbcn,app_date,app_prd_domain,app_prd_ip,app_prd_ojdbcip,app_dev_domain,app_dev_ip,app_dev_ojdbcip in appslist %}
+        应用名:{{ app_name}}<p></p>
+        模块名:{{ app_mod_name}}<p></p>
+        负者人:{{ app_loser_name }}<p></p>
+        中间件:{{ app_middleware }}<p></p>
+        java版本:{{ app_jdkn }}<p></p>
+        ojdbc版本:{{ app_ojdbcn }}<p></p>
+        录入日期：{{ app_date }}<p></p>
+        域名:{{ app_prd_domain }}<p></p>
+        生产环境IP：{{ app_prd_ip }}<p></p>
+        生产数据源：{{ app_prd_ojdbcip }}<p></p>
+        测试域名:{{ app_dev_domain }}<p></p>
+        测试环境IP：{{ app_dev_ip }}<p></p>
+        测试数据源：{{app_dev_ojdbcip }}<p></p>
+        <p>------------------------------------------------------------------</p>
+    {% endfor %}
+</body>
+</html>

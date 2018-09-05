@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>the server r</title>
+</head>
+<body>
+    <form action="/server/ro" method="get">
+        计算机名:<input type="text" name="servername" onFocus="this.value=''" value="ALL"><br>
+        计算机SN:<input type="text" name="serversn" onFocus="this.value=''" value="ALL"><br>
+        计算机资产号:<input type="text" name="serverasn" onFocus="this.value=''" value="ALL"><br>
+        计算机IP:<input type="text" name="serverip" onFocus="this.value=''" value="ALL"><br>
+        机柜排号:<input type="text" name="Row" onFocus="this.value=''" value="ALL"><br>
+        机柜列号:<input type="text" name="column" onFocus="this.value=''" value="ALL"><br>
+        机柜U号:<input type="text" name="U_Number" onFocus="this.value=''" value="ALL"><br>
+        <input type="submit" value="查询信息">
+        <!--<input type="submit" formaction="/example/html5/demo_admin.asp" value="修改信息" /><br>-->
+    </form>
+    <table border="1" width="100%">
+        <p><tr  bgcolor="yellow"><td>计算ID</td><td>计算SN</td><td>计算机机名</td><td>计算机资产号</td><td>计算机IP</td><td>录入日期</td><td>机柜排号</td><td>机柜列号</td><td>机柜U号</td></tr></p>
+        {% for list in service_select %}
+            <tr>
+            <p>
+                <form action="/server/uo" method="get">
+                <td bgcolor="#FF0000"><input type="text" style="width:50px" name="serverid" readonly value={{ list[0] }}></td>
+            <td bgcolor="#FF0000"><input type="text" name="serversn" readonly value={{ list[1] }}></td>
+            <td><input type="text" name="servername" value={{ list[2] }}></td>
+            <td bgcolor="#FF0000"><input type="text" name="serverasn" readonly value={{ list[3] }}></td>
+            <td><input type="text" name="serverip" value={{ list[4] }}></td>
+            <td><input type="text" disabled value={{ list[5] }}></td>
+            <td><input type="text" style="width:50px" name="Row" value={{ list[6] }}></td>
+            <td><input type="text" style="width:50px" name="column" value={{ list[7] }}></td>
+            <td><input type="text" style="width:50px" name="U_Number" value={{ list[8] }}></td>
+             <td>   <input type="submit" value="信息修改"></td>
+            </form>
+            </p>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
+
+

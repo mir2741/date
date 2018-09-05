@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>app</title>
+</head>
+<p>
+        <table border="1">
+        <form action="/apps/appsr">
+        <tr>
+            <td>模块名:</td><td><input type="text" value="ALL" name="appsname"></td>
+            <td>应用名:</td><td><input type="text" value="ALL" name="appname"></td>
+            <td>负者人:</td><td><input type="text" value="ALL" name="username" placeholder="开发对接人"></td></tr>
+            <tr><td>
+            中间件:</td><td><select name="middleware">
+                    <option value="ALL">ALL</option>
+                    <option value ='Tomcat6'>Tomcat6</option>
+                    <option value ='Tomcat8'>Tomcat8</option>
+                    <option value ='weblogic'>weblogic</option>
+                    <option value ='Jboss'>Jboss</option>
+               </select></td>
+            <td>
+        java版本:</td><td><select name="jdkn">
+                    <option value="ALL">ALL</option>
+                    <option value ='jdk_1.6'>jdk 1.6</option>
+                    <option value ='jdk_1.7'>jdk 1.7</option>
+                    <option value ='jdk_1.8'>jdk 1.8</option>
+        </select></td>
+        <td>
+        ojdbc版本:</td><td><select name="ojdbcn">
+                    <option value="ALL">ALL</option>
+                    <option value ='ojdbc6'>ojdbc6</option>
+                    <option value ='ojdbc6_g'>ojdbc6_g</option>
+                    <option value ='ojdbc8_g'>ojdbc8_g</option>
+                 </select>
+        </td>
+            <tr><td><input type="submit" value="查询"></td></tr>
+            </form>
+        </table></p>
+
+    <!-- app_name,app_mod_name,app_loser_name,app_middleware,app_jdkn,app_ojdbcn,app_date,app_prd_domain,app_prd_ip,app_prd_ojdbcip,app_dev_domain,app_dev_ip,app_dev_ojdbcip -->
+    {% for app_id,app_name,app_mod_name,app_loser_name,app_middleware,app_jdkn,app_ojdbcn,app_date,app_prd_domain,app_prd_ip,app_prd_ojdbcip,app_dev_domain,app_dev_ip,app_dev_ojdbcip in data %}
+            <table border="1">
+    <form action="/apps/appsrw">
+        <tr>
+            <td>应用编号：</td><td><input type="text" style="width:50px" readonly value="{{ app_id}}" name="app_id"></td>
+            <td>模块名:</td><td><input type="text" value="{{ app_mod_name}}" name="appsname"></td>
+            <td>应用名:</td><td><input type="text" value="{{ app_name }}" name="appname"></td>
+            <td>负者人:</td><td><input type="text" value="{{ app_loser_name }}" name="username"></td></tr>
+            <tr><td>
+            中间件:</td><td><select name="middleware">
+                <option value="{{ app_middleware }}">{{ app_middleware }}</option>
+                    <option value ='Tomcat6'>Tomcat6</option>
+                    <option value ='Tomcat8'>Tomcat8</option>
+                    <option value ='weblogic'>weblogic</option>
+                    <option value ='Jboss'>Jboss</option>
+               </select></td>
+            <td>
+        java版本:</td><td><select name="jdkn">
+                    <option value="{{ app_jdkn }}">{{ app_jdkn }}</option>
+                    <option value ='jdk_1.6'>jdk 1.6</option>
+                    <option value ='jdk_1.7'>jdk 1.7</option>
+                    <option value ='jdk_1.8'>jdk 1.8</option>
+        </select></td>
+        <td>
+        ojdbc版本:</td><td><select name="ojdbcn">
+                    <option value="{{ app_ojdbcn }}">{{ app_ojdbcn }}</option>
+                    <option value ='ojdbc6'>ojdbc6</option>
+                    <option value ='ojdbc6_g'>ojdbc6_g</option>
+                    <option value ='ojdbc8_g'>ojdbc8_g</option>
+                 </select>
+        </td>
+        </table>
+        <table border="2">
+        <tr><td>域名:</td><td><input type="text" style="width:500px" name="domain_name" value="{{ app_prd_domain }}"></td></tr>
+        <tr><td>生产环境IP：</td><td><input type="text" style="width:500px" name="prd_ip" value="{{ app_prd_ip }}"></td></tr>
+        <tr><td>生产数据源：</td><td><input type="text" style="width:500px" name="prd_ojdbc" value="{{ app_prd_ojdbcip }}"></td></tr>
+        <tr><td>测试域名:</td><td><input type="text" style="width:500px" name="dev_domain" value="{{ app_dev_domain }}"></td></tr>
+        <tr><td>测试环境IP：</td><td><input type="text" style="width:500px" name="dev_ip" value="{{ app_dev_ip }}"></td></tr>
+        <tr><td>测试数据源：</td><td><input type="text" style="width:500px" name="dev_ojdbc" value="{{app_dev_ojdbcip }}"></td></tr>
+        <tr><td><input type="submit" value="修改提交"></td></tr>
+        </table>
+    </form></p>
+        <p>------------------------------------------------------------------</p>
+    {% endfor %}
+
+
+</body>
+</html>

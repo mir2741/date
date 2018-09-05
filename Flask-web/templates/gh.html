@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>the server w</title>
+</head>
+<p>
+    <form action="/server/gw">
+        机房名:<input type="text" name="ge_name">
+        机房地址:<input type="text" name="ge_addr" style="width:500px">
+        <input type="submit" value="提交">
+    </form></p>
+    <form action="/server/gu">
+        机房名:<input type="text" name="ge_name">
+        服务器:<input type="text" name="ge_addr">
+        <input type="submit" value="修改所在机房">
+    </form></p>
+        <form action="/server/grh">
+         <select name="g_id" style="width:500px">
+        {% for foo in gname %}
+            <option value ={{ foo[0] }}>{{ foo[1] }},<{{ foo[2] }}></option>
+        {% endfor %}
+        </select>
+        <input type="submit" value="查询"><br>
+        </form></p>
+        <p>设备总和：{{ g_Total }}</p>
+        <table border="1">
+        <p><tr  bgcolor="red"><td>机房</td><td>计算SN</td><td>计算机机名</td><td>计算机资产号</td><td>计算机IP</td><td>录入日期</td><td>机柜排号</td><td>机柜列号</td><td>机柜U号</td></tr></p>
+        {% for list in service_select %}
+            <tr>
+            <p>
+                <td><input type="text" name="ge_name" value={{ list[8] }}></td>
+                <td><input type="text" name="serversn" readonly value={{ list[0] }}></td>
+                <td><input type="text" name="servername" readonly value={{ list[1] }}></td>
+                <td><input type="text" name="serverasn" readonly disabled value={{ list[2] }}></td>
+                <td><input type="text" name="serverasn" readonly value={{ list[3] }}></td>
+                <td><input type="text" disabled value={{ list[4] }}></td>
+                <td><input type="text" name="Row" readonly value={{ list[5] }}></td>
+                <td><input type="text" name="column" readonly value={{ list[6] }}></td>
+                <td><input type="text" name="U_Number" readonly value={{ list[7] }}></td>
+                </form>
+            </p>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

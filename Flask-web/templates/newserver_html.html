@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>newserver html</title>
+</head>
+<body>
+    <p>{{ server_ip }}</p>
+    <table border="1">
+    <form action="/server/aaaaa" method="get" >
+    <tr>
+        <td>环境：</td><td>{{ geology }}</td>
+        <td>模块名:</td><td>{{ appsname }}</td>
+    </tr>
+        <td>应用名:</td><td>{{ app_name }}</td>
+        <td>负者人:</td><td>{{ app_loser_name }}</td>
+    </tr><tr>
+        <td>中间件:</td><td><input type="text" name="middleware" readonly value={{ middleware }}></td>
+    </tr><tr>
+        <td>java版本:</td><td><input type="text" name="jdkn" readonly value={{ jdkn }}></td>
+    </tr>
+        {% for ip in server_ip %}
+            <tr>
+                <td>服务器IP：</td>
+                <td><input type="text" name="server_ip" readonly value={{ ip }}></td>
+                <td><input type="submit" value="查询"></td>
+            </tr>
+        {% endfor %}
+    </form>
+    </table>
+</body>
+</html>

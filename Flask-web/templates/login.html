@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!--<link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>-->
+		<meta charset="utf-8">
+		<title>Login</title>
+		<link href="static/css/style.css" media="screen" rel="stylesheet" type="text/css" />
+		<link href="static/css/iconic.css" media="screen" rel="stylesheet" type="text/css" />
+		<script src="static/css/prefix-free.js"></script>
+	</head>
+    <body>
+    <div id="header" style="background-color:#FFA500;">
+        <meta charset="UTF-8">
+        用户：{{uaername}}
+        账号：{{ userNumber }}
+        {% if uaerstate == "y" %}
+            <h>角色：运维管理员</h>
+        {% else %}
+            <h>角色：系统管理员</h>
+            <h>用户管理</h>
+        {% endif %}
+        <!--{{ uaerstate }} -->
+    </div>
+    </body>
+<body>
+	<div class="wrap">
+	<nav>
+		<ul class="menu">
+			<li><a href="#"><span class="iconic home"></span> 首页</a></li>
+			<li><a href="#"><span class="iconic plus-alt"></span> 添加</a>
+				<ul>
+					<li><a href="/server/wh" target="iframe_a">物理机信息录入</a></li>
+					<li><a href="/server/gh" target="iframe_a">机房信息  录入</a></li>
+                    <li><a href="/apps/wh" target="iframe_a">应用信息  录入</a></li>
+				</ul>
+			</li>
+			<li><a href="#"><span class="iconic magnifying-glass"></span> 查询</a>
+				<ul>
+					<li><a href="/server/rh" target="iframe_a">物理机信息查询</a></li>
+					<li><a href="/apps/rh" target="iframe_a">应用信息  查询</a></li>
+                <!--    <li><a href="/server/deploy" target="iframe_a">快速 部署</a></li>
+					<li><a href="#">Email Campaigns</a></li>
+					<li><a href="#">Copyrighting</a></li>  -->
+				</ul>
+			</li>
+			<li><a href="#"><span class="iconic map-pin"></span> Products</a>
+				<ul>
+					<li><a href="http://www.runoob.com" target="iframe_a">学习</a></li>
+					<li><a href="http://10.208.14.200:7900/login">腾讯云JENNIFER5</a></li>
+					<li><a href="http://172.20.50.200:7900/login">IDC JENNIFER5</a></li>
+				<!--	<li><a href="#">Web App Four</a></li>
+					<li><a href="#">Crazy Products</a></li>
+					<li><a href="#">iPhone Apps</a></li> -->
+				</ul>
+			</li>
+			<li><a href="#"><span class="iconic mail"></span> Contact</a>
+				<ul>
+					<li><a href="#">Contact Us</a></li>
+					<li><a href="#">Directions</a></li>
+				</ul>
+			</li>
+		</ul>
+		<div class="clearfix"></div>
+	</nav>
+	</div>
+</body>
+<iframe id="content" style="height:1000px;width:100%"frameborder="0" name="iframe_a"></iframe>
+</html>
