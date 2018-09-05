@@ -2,9 +2,9 @@ import mysql.connector as sql
 
 
 config = {
-        'host': '10.22.220.177',
-        'user': 'abmadmin',
-        'password': 'W&e7Mysl',
+        'host': '127.0.0.1',
+        'user': 'admin',
+        'password': 'admin123',
         'port': 3306,
         'database': 'abm',
         'charset': 'utf8'
