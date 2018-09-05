@@ -3,13 +3,8 @@ import mysql.connector as sql
 
 config = {
         'host': '127.0.0.1',
-<<<<<<< HEAD
         'user': 'admin',
         'password': 'admin123',
-=======
-        'user': 'abmadmin',
-        'password': 'W&e7Mysl',
->>>>>>> 6a8e12872683aaa6cfbaf951265f890fa2d2442f
         'port': 3306,
         'database': 'abm',
         'charset': 'utf8'
