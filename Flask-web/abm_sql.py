@@ -2,7 +2,7 @@ import mysql.connector as sql
 
 
 config = {
-        'host': '10.22.220.177',
+        'host': '127.0.0.1',
         'user': 'abmadmin',
         'password': 'W&e7Mysl',
         'port': 3306,
