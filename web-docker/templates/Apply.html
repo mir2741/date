@@ -65,25 +65,12 @@
                           <li class="active"><a href="#tab_1" data-toggle="tab">创建项目</a></li>
                           <li><a href="#tab_2" data-toggle="tab">添加应用</a></li>
                           <li><a href="#tab_3" data-toggle="tab">发布申请</a></li>
-                          <!--<li class="dropdown">
-                              <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                  Dropdown <span class="caret"></span>
-                              </a>
-                              <ul class="dropdown-menu">
-                                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
-                                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
-                                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
-                                  <li role="presentation" class="divider"></li>
-                                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
-                              </ul>
-                          </li>
-                          <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li> -->
                       </ul>
                       <div class="tab-content">
                           <div class="tab-pane active" id="tab_1">
 
                               <tr class="btn btn-block btn-social btn-facebook">
-                                  <form action="/apps/appsw">
+                                  <form action="/Apply/Create/Project"  method="post">
                                   <td >
                                       <p style="font-size:15px;line-height:50px;background:AliceBlue ;color:#000000;text-align:center">项目创建</p>
                                       项目名（en）<input type="text" style="width:40%" name="appsname" placeholder="项目名">
@@ -98,24 +85,23 @@
               <!-- /.tab-pane -->
                           <div class="tab-pane" id="tab_2">
                               <tr>
-                                  <form action="/apps/appsw">
+                                  <form action="/Apply/Create/Apps"  method="post">
                                       <br>
                                       <p style="font-size:15px;line-height:50px;background:Gainsboro ;color:#000000;text-align:center">应用创建</p>
                                       </br>
                                       <br>
-                                      <select name="aaaa">
+                                      <select name="Project_id">
                                           <option>-选择所属项目-</option>
-                                          <option value="1">我是下拉项目1</option>
-                                          <option value="2">我是下拉项目2</option>
-                                          <option value="3">我是下拉项目3</option>
-                                          <option value="4">我是下拉项目4</option>
+                                          {% for Project_id,Project_Name in Project_list %}
+                                          <option value={{ Project_id }}>{{ Project_Name }}</option>
+                                          {% endfor %}
                                       </select>
                                       </br>
                                       <br>
                                       应用名（en）：<input type="text" style="width:40%" name="appsname" placeholder="应用名">
                                       </br>
                                       <br>
-                                      <select name="bbb">
+                                      <select name="assembly">
                                           <option>-选择中间件-</option>
                                           <option value="Tomcat8">Tomcat8</option>
                                           <option value="Jboss7">Jboss7</option>
@@ -144,7 +130,7 @@
               <!-- /.tab-pane -->
                           <div class="tab-pane" id="tab_3">
                               <tr>
-                                  <form action="/apps/appsw">
+                                  <form action="/data/create/apps_waiting"  method="post">
                                       <br>
                                       <p style="font-size:15px;line-height:50px;background:Gainsboro ;color:#000000;text-align:center">部署申请</p>
                                       </br>
