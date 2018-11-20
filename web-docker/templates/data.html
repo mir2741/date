@@ -73,11 +73,15 @@
                 <tbody>
                 {% for Project_Name,Apps_Name,Applicant_Name,app_state in data_list %}
                     <tr>
+
                         <td>{{ Project_Name }}</td>
                         <td>{{ Apps_Name }}</td>
                         <td>{{ Applicant_Name }}</td>
                         <td>{{ app_state }}</td>
-                        <td>查询</td>
+                        <td>
+                            <a href="/see/Detailed?Project_Name={{ Project_Name }}&Apps_Name={{ Apps_Name }}">详细</a>
+                        </td>
+                    </form>
                     </tr>
                 {% endfor %}
                 </tbody>

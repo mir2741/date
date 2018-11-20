@@ -36,7 +36,7 @@
   <div class="login-box-body">
     <p class="login-box-msg">Sign in to start your session</p>
 
-    <form action="/login" method="post">
+    <form action="/" method="post">
       <div class="form-group has-feedback">
         <input name="username" class="form-control" placeholder="user ID">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
@@ -59,6 +59,7 @@
         </div>
         <!-- /.col -->
       </div>
+        {{ errmsg }}
     </form>
 
     <div class="social-auth-links text-center">
